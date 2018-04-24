@@ -1,0 +1,24 @@
+mixin search
+    .search
+        h1.search__header Russian Train Tickets
+        form.form.search__form
+            .form__container        
+                .form__row
+                    .form__block 
+                        span.form__block-title Departure city:
+                        input.form__block-input(type='text' name='departure' placeholder='Type city name' required)
+                        .form__block-footer
+                            | Ex: 
+                            a St. Petersburg
+                            | , 
+                            a Moscow
+                    svg.form__swap
+                        use(xlink:href='/assets/images/icons/sprite.svg#swap')                        
+                    .form__block 
+                        span.form__block-title Arrival city:
+                        input.form__block-input(type='text' name='arrival' placeholder='Type city name' required)     
+                        .form__block-footer
+                            | Ex: 
+                            a St. Petersburg
+                            | , 
+                            a Moscow                                           

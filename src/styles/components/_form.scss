@@ -1,0 +1,39 @@
+.form__row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.form__block {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .form__block-input {
+    margin: 0.4rem 0;
+    border: 1px solid $color_white;
+    border-radius: 5px;
+    padding: 1rem;
+
+    &::placeholder {
+      color: $color_gray;
+    }
+  }
+}
+.form__swap {
+  margin: 0 1rem;
+  width: rem(30px);
+  height: rem(16px);
+  fill: $color_white;
+}
+.form__block-footer {
+  color: $color_blue_hide;
+
+  a {
+    text-decoration: none;
+    border-bottom: 1px dashed $color_blue_hide;
+    &:hover {
+      color: $color_white;
+      border-bottom: none;
+    }
+  }
+}

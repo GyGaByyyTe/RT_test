@@ -23,8 +23,28 @@
                     <li class="menu__item">TICKETS GUIDE         </li>
                     <li class="menu__item">CONTACT US</li>
                   </ul>
-                  <div class="menu__login"><a href="#">Sign in</a></div>
+                  <div class="menu__login"><a>Sign in</a></div>
                 </menu>
+                <div class="search">
+                  <h1 class="search__header">Russian Train Tickets</h1>
+                  <form class="form search__form">
+                    <div class="form__container">       
+                      <div class="form__row">
+                        <div class="form__block"> <span class="form__block-title">Departure city:</span>
+                          <input class="form__block-input" type="text" name="departure" placeholder="Type city name" required>
+                          <div class="form__block-footer">Ex: <a>St. Petersburg</a>, <a>Moscow</a></div>
+                        </div>
+                        <svg class="form__swap">
+                          <use xlink:href="/assets/images/icons/sprite.svg#swap">                       </use>
+                        </svg>
+                        <div class="form__block"> <span class="form__block-title">Arrival city:</span>
+                          <input class="form__block-input" type="text" name="arrival" placeholder="Type city name" required>
+                          <div class="form__block-footer">Ex: <a>St. Petersburg</a>, <a>Moscow                                           </a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
       </div>
     </div>
   </body>
