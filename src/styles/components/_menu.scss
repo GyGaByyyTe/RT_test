@@ -1,0 +1,46 @@
+.menu {
+  @include flex-prop;
+  background-color: $color_light_blue;
+  padding: 0 rem(86px);  
+
+  .menu__list {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .menu__item {
+    padding: 1rem 0;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;    
+  }
+
+  .menu__login {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-left: 2.5rem;
+    color: $color_blue_hide;
+    font-weight: 400;
+    text-decoration: underline;    
+
+    &:hover {
+      color: $color_white;
+
+      &:before {
+        background-image: inline_svg('sign_in', $color_white);
+      }
+    }
+
+    &:before {
+      content: ' ';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      background-image: inline_svg('sign_in', $color_blue_hide);
+    }
+  }
+}

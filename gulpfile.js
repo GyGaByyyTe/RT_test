@@ -2,6 +2,9 @@ const gulp = require('gulp');
 const pug = require('gulp-pug');
 const path = require('path');
 
+const $gp = require('gulp-load-plugins')();
+const mergeStream = require('merge-stream');
+
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const autoprefixer = require('gulp-autoprefixer');
@@ -18,6 +21,7 @@ const jshint = require('gulp-jshint');
 
 const paths = {
   root: './build',
+  src: 'src',
   templates: {
     pages: 'src/templates/pages/*.pug',
     src: 'src/templates/**/*.pug'
@@ -119,9 +123,58 @@ function server() {
   browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
 }
 
+// спрайт иконок + инлайн svg
+gulp.task('svg', done => {
+  const prettySvgs = () => {
+    return gulp
+      .src(`${paths.src}/images/icons/*.svg`)
+      .pipe(
+        $gp.svgmin({
+          js2svg: {
+            pretty: true
+          }
+        })
+      )
+      .pipe(
+        $gp.cheerio({
+          run($) {
+            $('[fill], [stroke], [style]')
+              .removeAttr('fill')
+              .removeAttr('stroke')
+              .removeAttr('style');
+          },
+          parserOptions: { xmlMode: true }
+        })
+      )
+      .pipe($gp.replace('&gt;', '>'));
+  };
+
+  let svgSprite = prettySvgs()
+    .pipe(
+      $gp.svgSprite({
+        mode: {
+          symbol: {
+            sprite: '../sprite.svg'
+          }
+        }
+      })
+    )
+    .pipe(gulp.dest('build/assets/images/icons/'));
+
+  let svgInline = prettySvgs().pipe(
+    $gp.sassInlineSvg({
+      destDir: `${paths.src}/styles/icons/`
+    })
+  );
+
+  return mergeStream(svgSprite, svgInline);
+});
+
 // просто переносим картинки
 function images() {
-  return gulp.src(paths.images.src).pipe(gulp.dest(paths.images.dest));
+  return gulp
+    .src([`${paths.images.src}`,`!${paths.src}/images/icons/*.*`])
+    .pipe(gulp.dest(paths.images.dest));
 }
 
 // просто переносим шрифты
@@ -139,15 +192,16 @@ gulp.task(
   'default',
   gulp.series(
     clean,
+    'svg',
     gulp.parallel(styles, templates, images, scriptsDev),
     gulp.parallel(watch, server)
   )
 );
 gulp.task(
   'dev',
-  gulp.series(clean, gulp.parallel(styles, templates, images, scriptsDev))
+  gulp.series(clean,'svg', gulp.parallel(styles, templates, images, scriptsDev))
 );
 gulp.task(
   'prod',
-  gulp.series(clean, gulp.parallel(styles, templates, images, scriptsProd))
+  gulp.series(clean,'svg', gulp.parallel(styles, templates, images, scriptsProd))
 );

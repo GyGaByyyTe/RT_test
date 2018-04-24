@@ -4,6 +4,8 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
 
+@import "icons/sass-inline-svg";
+
 // Импортируем базовые стили
 // @import "base/fonts";
 @import "base/base";
@@ -12,7 +14,7 @@
 //@import "layout/header";
 
 //Ипортируем Стили отдельных компонентов
-// @import "components/menu";
+@import "components/menu";
 
 //Ипортируем Персональные стили для страниц
 // @import 'pages/home';
