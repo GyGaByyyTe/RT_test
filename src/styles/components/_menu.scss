@@ -12,10 +12,12 @@ $border_gray: 1px solid #d7d7d7;
   .menu__item {
     position: relative;
     padding: 0.95rem 0.7rem;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
+    text-align: center;
 
     &:hover {
       cursor: pointer;
@@ -29,7 +31,7 @@ $border_gray: 1px solid #d7d7d7;
         content: ' ';
         position: absolute;
         border: 5px solid transparent;
-        border-top: 5px solid $color_white;        
+        border-top: 5px solid $color_white;
         top: 45%;
         right: 1%;
         transform: translateX(-100%);
@@ -43,6 +45,10 @@ $border_gray: 1px solid #d7d7d7;
     }
   }
 
+  .menu__link {
+    display: inline-block;
+  }
+
   .menu__sublist {
     overflow: hidden;
     position: absolute;
@@ -51,7 +57,7 @@ $border_gray: 1px solid #d7d7d7;
     left: 0;
     border: $border_gray;
     border-top: none;
-    border-radius: 0 0 6px 6px
+    border-radius: 0 0 6px 6px;
   }
 
   .menu__subitem {
@@ -61,7 +67,8 @@ $border_gray: 1px solid #d7d7d7;
     background-color: $color_white;
     text-transform: none;
     font-size: rem(14px);
-    font-weight: 400;   
+    font-weight: 400;
+    text-align: left;
 
     &--imp {
       position: relative;
@@ -77,7 +84,7 @@ $border_gray: 1px solid #d7d7d7;
       &:after {
         @extend .menu__subitem--imp:before;
         top: 100%;
-      }      
+      }
     }
 
     &:hover {

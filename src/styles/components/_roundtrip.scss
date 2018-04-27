@@ -1,0 +1,46 @@
+.roundtrip {
+  position: absolute;
+  top: -0.3rem;
+  left: 56%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  background-color: #0b92d2;
+  border-radius: 5px;
+}
+/* Чекбокс */
+.roundtrip__custom-checkbox {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roundtrip__custom-checkbox-real {
+  display: none;
+}
+
+.roundtrip__checkbox-custom {
+  margin-right: rem(5px);
+  width: rem(16px);
+  height: rem(16px);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.7);
+  background-color: $color_white;
+  border-radius: 3px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.roundtrip__custom-checkbox-real:checked + .roundtrip__checkbox-custom::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: rem(5px);
+  height: rem(10px);
+  border-right: rem(2px) solid #0085c5;
+  border-bottom: rem(2px) solid #0085c5;
+  transform-origin: center bottom;
+  transform: rotate(45deg);
+}

@@ -15,10 +15,10 @@
       <div class="container">
                 <menu class="menu">
                   <ul class="menu__list">
-                    <li class="menu__item">SEARCH TICKETS</li>
-                    <li class="menu__item">SAPSAN</li>
-                    <li class="menu__item">ALLEGRO</li>
-                    <li class="menu__item menu__item--drop">TRANS-SIBERIAN
+                    <li class="menu__item"> <a class="menu__link">SEARCH TICKETS</a></li>
+                    <li class="menu__item"> <a class="menu__link">SAPSAN</a></li>
+                    <li class="menu__item"> <a class="menu__link">ALLEGRO</a></li>
+                    <li class="menu__item menu__item--drop"> <a class="menu__link">TRANS-SIBERIAN</a>
                       <ul class="menu__sublist">
                         <li class="menu__subitem menu__subitem--imp">Group travel</li>
                         <li class="menu__subitem menu__subitem--imp">Ticket types</li>
@@ -27,7 +27,7 @@
                         <li class="menu__subitem">Cancel tickets                   </li>
                       </ul>
                     </li>
-                    <li class="menu__item menu__item--drop">FAQ
+                    <li class="menu__item menu__item--drop"> <a class="menu__link">FAQ</a>
                       <ul class="menu__sublist">
                         <li class="menu__subitem">Group travel</li>
                         <li class="menu__subitem">Ticket types</li>
@@ -36,7 +36,7 @@
                         <li class="menu__subitem menu__subitem--imp">Cancel tickets             </li>
                       </ul>
                     </li>
-                    <li class="menu__item menu__item--drop">TICKETS GUIDE
+                    <li class="menu__item menu__item--drop"> <a class="menu__link">TICKETS GUIDE</a>
                       <ul class="menu__sublist">
                         <li class="menu__subitem">Group travel</li>
                         <li class="menu__subitem">Ticket types</li>
@@ -45,7 +45,7 @@
                         <li class="menu__subitem">Cancel tickets                  </li>
                       </ul>
                     </li>
-                    <li class="menu__item">CONTACT US</li>
+                    <li class="menu__item"> <a class="menu__link">CONTACT US</a></li>
                   </ul>
                   <div class="menu__login"><a>Sign in</a></div>
                 </menu>
@@ -63,8 +63,36 @@
                         </svg>
                         <div class="form__block"> <span class="form__block-title">Arrival city:</span>
                           <input class="form__block-input" type="text" name="arrival" placeholder="Type city name" required>
-                          <div class="form__block-footer">Ex: <a>St. Petersburg</a>, <a>Moscow                                           </a></div>
+                          <div class="form__block-footer">Ex: <a>St. Petersburg</a>, <a>Moscow </a></div>
                         </div>
+                      </div>
+                      <div class="form__row">
+                        <div class="form__block"><span class="form__block-title">Departure date:                    </span>
+                          <input class="form__date" type="date">
+                        </div>
+                        <div class="form__block">
+                          <div class="roundtrip">
+                            <label class="roundtrip__custom-checkbox">
+                              <input class="roundtrip__custom-checkbox-real" type="checkbox" name="Roundtrip"><span class="roundtrip__checkbox-custom"></span><span class="roundtrip__block-title">Roundtrip </span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="form__block"><span class="form__block-title">Return date:                    </span>
+                          <input class="form__date" type="date">
+                        </div>
+                        <div class="form__block">
+                          <div class="form__select custom-select"><span class="form__block-title">Currency                        </span>
+                            <select>
+                              <option value="0">USD</option>
+                              <option value="1">RUB</option>
+                              <option value="2">GBR</option>
+                              <option value="3">EUR</option>
+                              <option value="4">CHF</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form__block"><a class="form__button"> 
+                            <div class="form__button-inner">Search                                </div></a></div>
                       </div>
                     </div>
                   </form>
