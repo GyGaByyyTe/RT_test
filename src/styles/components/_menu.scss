@@ -5,6 +5,10 @@ $border_gray: 1px solid #d7d7d7;
   background-color: $color_light_blue;
   padding: 0 rem(86px);
 
+  @include small{
+    padding: 0 1rem;
+  }
+
   .menu__list {
     display: flex;
   }

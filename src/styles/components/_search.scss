@@ -2,6 +2,10 @@
   background-color: $color_blue;
   padding: 3.1rem rem(86px) rem(55px);
 
+  @include small{
+    padding: 3.1rem 1rem rem(55px);
+  }
+
   .search__header {
     font-size: rem(24px);
     font-weight: 400;

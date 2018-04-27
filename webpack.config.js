@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const path = require('path');
 
 const config = {
   mode: 'development',
@@ -19,14 +20,21 @@ const config = {
     ]
   },
   plugins: [
-    // new webpack.ProvidePlugin({
-    //   $: 'jquery',
-    //   jQuery: 'jquery'
-    // }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      // datetimepicker: 'jquery-datetimepicker'
+    }),
     new UglifyJSPlugin({
       sourceMap: true
     })
   ],
+  resolve: {
+    alias: {
+      // D:\HTML\RT_test\node_modules\jquery-datetimepicker\build\jquery.datetimepicker.min.js
+      datetimepicker: path.resolve(__dirname,'node_modules/jquery-datetimepicker/build/jquery.datetimepicker.full.min')
+    }
+  }
   // optimization: {
   //   minimize: false,
   //   runtimeChunk: {

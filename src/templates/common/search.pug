@@ -25,7 +25,8 @@ mixin search
                 .form__row
                     .form__block
                         span.form__block-title Departure date:                    
-                        input.form__date(type='date')
+                        input.form__date#date-departure(type='date')
+                        input.form__block-input(type='text' id="datetimepicker1" name='date-departure' placeholder='dd.mm.yyyy')
                     .form__block
                         .roundtrip
                             label.roundtrip__custom-checkbox
@@ -34,11 +35,12 @@ mixin search
                                 span.roundtrip__block-title Roundtrip 
                     .form__block
                         span.form__block-title Return date:                    
-                        input.form__date(type='date')
+                        input.form__date#date-return(type='date')
+                        input.form__block-input(type='text' id="datetimepicker2" name='date-return' placeholder='dd.mm.yyyy' disabled)                        
                     .form__block
-                        .form__select.custom-select
-                            span.form__block-title Currency                        
-                            select
+                        span.form__block-title.form__block-title--select Currency                        
+                        .form__select.custom-select                
+                            select#custom-select
                                 option(value="0") USD
                                 option(value="1") RUB
                                 option(value="2") GBR

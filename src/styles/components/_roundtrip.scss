@@ -6,6 +6,10 @@
   padding: 0.5rem;
   background-color: #0b92d2;
   border-radius: 5px;
+
+  @include before_tablets {
+    left: 50%;
+  }
 }
 /* Чекбокс */
 .roundtrip__custom-checkbox {

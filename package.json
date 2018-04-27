@@ -36,6 +36,8 @@
     "webpack": "^4.1.0"
   },
   "dependencies": {
+    "jquery": "^3.3.1",
+    "jquery-datetimepicker": "^2.5.20",
     "normalize.css": "^8.0.0"
   }
 }

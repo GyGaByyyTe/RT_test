@@ -68,7 +68,8 @@
                       </div>
                       <div class="form__row">
                         <div class="form__block"><span class="form__block-title">Departure date:                    </span>
-                          <input class="form__date" type="date">
+                          <input class="form__date" id="date-departure" type="date">
+                          <input class="form__block-input" type="text" id="datetimepicker1" name="date-departure" placeholder="dd.mm.yyyy">
                         </div>
                         <div class="form__block">
                           <div class="roundtrip">
@@ -78,11 +79,12 @@
                           </div>
                         </div>
                         <div class="form__block"><span class="form__block-title">Return date:                    </span>
-                          <input class="form__date" type="date">
+                          <input class="form__date" id="date-return" type="date">
+                          <input class="form__block-input" type="text" id="datetimepicker2" name="date-return" placeholder="dd.mm.yyyy" disabled>
                         </div>
-                        <div class="form__block">
-                          <div class="form__select custom-select"><span class="form__block-title">Currency                        </span>
-                            <select>
+                        <div class="form__block"><span class="form__block-title form__block-title--select">Currency                        </span>
+                          <div class="form__select custom-select">               
+                            <select id="custom-select">
                               <option value="0">USD</option>
                               <option value="1">RUB</option>
                               <option value="2">GBR</option>

@@ -65,6 +65,18 @@
     @return $px / $base + 0rem;
 }
 
+@mixin small {
+    @media screen and (max-width: $small) {
+        @content;
+    }
+}
+
+@mixin before_tablets {
+    @media screen and (max-width: $before_tablets) {
+        @content;
+    }
+}
+
 @mixin tablets {
     @media screen and (max-width: $tablets) {
         @content;
