@@ -12,8 +12,7 @@ mixin search
                             a St. Petersburg
                             | , 
                             a Moscow
-                    svg.form__swap
-                        use(xlink:href='/assets/images/icons/sprite.svg#swap')                        
+                    .form__swap                   
                     .form__block 
                         span.form__block-title Arrival city:
                         input.form__block-input(type='text' name='arrival' placeholder='Type city name' required)     
@@ -26,7 +25,9 @@ mixin search
                     .form__block
                         span.form__block-title Departure date:                    
                         input.form__date#date-departure(type='date')
-                        input.form__block-input(type='text' id="datetimepicker1" name='date-departure' placeholder='dd.mm.yyyy')
+                        .form__input-date                        
+                            input.form__block-input.form__block-input--date(type='text' id="datetimepicker1" name='date-departure' placeholder='dd.mm.yyyy')
+                            .form__calendar#button-datetimepicker1                             
                     .form__block
                         .roundtrip
                             label.roundtrip__custom-checkbox
@@ -36,7 +37,9 @@ mixin search
                     .form__block
                         span.form__block-title Return date:                    
                         input.form__date#date-return(type='date')
-                        input.form__block-input(type='text' id="datetimepicker2" name='date-return' placeholder='dd.mm.yyyy' disabled)                        
+                        .form__input-date
+                            input.form__block-input.form__block-input--date(type='text' id="datetimepicker2" name='date-return' placeholder='dd.mm.yyyy') 
+                            .form__calendar#button-datetimepicker2                                                                 
                     .form__block
                         span.form__block-title.form__block-title--select Currency                        
                         .form__select.custom-select                
@@ -48,4 +51,6 @@ mixin search
                                 option(value="4") CHF
                     .form__block
                         a.form__button 
-                            .form__button-inner Search                                
+                            .form__button-inner Search
+                    
+                                                

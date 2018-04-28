@@ -14,7 +14,9 @@
     <div class="wrapper">
       <div class="container">
                 <menu class="menu">
-                  <ul class="menu__list">
+                  <div class="hamburger">               <a class="hamburger__link">Меню
+                      <div class="hamburger__line">   </div></a></div>
+                  <ul class="menu__list" id="nav">
                     <li class="menu__item"> <a class="menu__link">SEARCH TICKETS</a></li>
                     <li class="menu__item"> <a class="menu__link">SAPSAN</a></li>
                     <li class="menu__item"> <a class="menu__link">ALLEGRO</a></li>
@@ -45,9 +47,16 @@
                         <li class="menu__subitem">Cancel tickets                  </li>
                       </ul>
                     </li>
-                    <li class="menu__item"> <a class="menu__link">CONTACT US</a></li>
-                  </ul>
-                  <div class="menu__login"><a>Sign in</a></div>
+                    <li class="menu__item menu__item--drop"> <a class="menu__link">CONTACT US</a>
+                      <ul class="menu__sublist">
+                        <li class="menu__subitem">Group travel</li>
+                        <li class="menu__subitem">Ticket types</li>
+                        <li class="menu__subitem">Child policy</li>
+                        <li class="menu__subitem menu__subitem--imp">Change ticket request</li>
+                        <li class="menu__subitem">Cancel tickets                             </li>
+                      </ul>
+                    </li>
+                  </ul><a class="menu__login">Sign in</a>
                 </menu>
                 <div class="search">
                   <h1 class="search__header">Russian Train Tickets</h1>
@@ -58,9 +67,7 @@
                           <input class="form__block-input" type="text" name="departure" placeholder="Type city name" required>
                           <div class="form__block-footer">Ex: <a>St. Petersburg</a>, <a>Moscow</a></div>
                         </div>
-                        <svg class="form__swap">
-                          <use xlink:href="/assets/images/icons/sprite.svg#swap">                       </use>
-                        </svg>
+                        <div class="form__swap">                  </div>
                         <div class="form__block"> <span class="form__block-title">Arrival city:</span>
                           <input class="form__block-input" type="text" name="arrival" placeholder="Type city name" required>
                           <div class="form__block-footer">Ex: <a>St. Petersburg</a>, <a>Moscow </a></div>
@@ -69,7 +76,10 @@
                       <div class="form__row">
                         <div class="form__block"><span class="form__block-title">Departure date:                    </span>
                           <input class="form__date" id="date-departure" type="date">
-                          <input class="form__block-input" type="text" id="datetimepicker1" name="date-departure" placeholder="dd.mm.yyyy">
+                          <div class="form__input-date">                       
+                            <input class="form__block-input form__block-input--date" type="text" id="datetimepicker1" name="date-departure" placeholder="dd.mm.yyyy">
+                            <div class="form__calendar" id="button-datetimepicker1">                            </div>
+                          </div>
                         </div>
                         <div class="form__block">
                           <div class="roundtrip">
@@ -80,7 +90,10 @@
                         </div>
                         <div class="form__block"><span class="form__block-title">Return date:                    </span>
                           <input class="form__date" id="date-return" type="date">
-                          <input class="form__block-input" type="text" id="datetimepicker2" name="date-return" placeholder="dd.mm.yyyy" disabled>
+                          <div class="form__input-date">
+                            <input class="form__block-input form__block-input--date" type="text" id="datetimepicker2" name="date-return" placeholder="dd.mm.yyyy">
+                            <div class="form__calendar" id="button-datetimepicker2">                                                                </div>
+                          </div>
                         </div>
                         <div class="form__block"><span class="form__block-title form__block-title--select">Currency                        </span>
                           <div class="form__select custom-select">               
@@ -94,7 +107,7 @@
                           </div>
                         </div>
                         <div class="form__block"><a class="form__button"> 
-                            <div class="form__button-inner">Search                                </div></a></div>
+                            <div class="form__button-inner">Search</div></a></div>
                       </div>
                     </div>
                   </form>

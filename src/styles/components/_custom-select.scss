@@ -2,6 +2,10 @@
   position: relative;
   width: rem(86px);
   margin: 0.4rem auto;
+
+  @include tablets {
+    margin-right: 0;
+  }
   select {
     // display: none;
     font-size: rem(16px);
@@ -15,7 +19,14 @@
   color: black;
   padding: rem(14px) rem(16px);
   border: 1px solid $color_border;
-  // border-color: transparent transparent $color_border transparent;
+
+
+  &:hover {
+    .select-button {
+      background-color: darken(#efefef,10%);
+    }
+  }
+
   cursor: pointer;
   /*style the arrow inside the select element:*/
 
@@ -29,6 +40,7 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.62);
     border-radius: 2px;
     background-color: #efefef;
+    transition: background-color 0.1s linear;
     &:after {
       position: absolute;
       content: '';

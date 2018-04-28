@@ -1,6 +1,9 @@
 mixin menu
     menu.menu
-        ul.menu__list
+        .hamburger                
+            a(class='hamburger__link') Меню
+                .hamburger__line    
+        ul.menu__list#nav
             li.menu__item 
                 a.menu__link SEARCH TICKETS
             li.menu__item 
@@ -31,7 +34,12 @@ mixin menu
                     li.menu__subitem Child policy
                     li.menu__subitem.menu__subitem--imp Change ticket request
                     li.menu__subitem Cancel tickets                  
-            li.menu__item 
+            li.menu__item.menu__item--drop  
                 a.menu__link CONTACT US
-        .menu__login
-            a Sign in
+                ul.menu__sublist
+                    li.menu__subitem Group travel
+                    li.menu__subitem Ticket types
+                    li.menu__subitem Child policy
+                    li.menu__subitem.menu__subitem--imp Change ticket request
+                    li.menu__subitem Cancel tickets                             
+        a.menu__login Sign in

@@ -27,6 +27,12 @@ html {
 }
 html {
   font-size: 14px;
+  @include before_tablets {
+    font-size: 13px;
+  }
+  @include phones  {
+    font-size: 12px;
+  }  
 }
 
 ul,
@@ -72,7 +78,6 @@ a {
   background-color: $color_white;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .container {
@@ -84,4 +89,8 @@ a {
   box-shadow: 0 0 18px 3px rgba(0, 0, 0, 0.57);
   background-color: $color_white;
   padding-top: rem(105px);
+
+  @include tablets { 
+    padding-top: 0;
+  }
 }

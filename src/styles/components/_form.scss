@@ -4,8 +4,28 @@
   align-items: center;
   margin-bottom: 1.7rem;
 
+  @include tablets {
+    flex-wrap: wrap;
+
+    &:first-child {
+      flex-direction: column;
+      .form__block {
+        flex: none;
+        width: 90%;
+      }
+    }
+  }
+
   &:last-child {
     margin-bottom: 0;
+
+    @include tablets {
+      padding: 0 5%;
+      .form__block:last-child {
+        width: auto;
+        margin: 0 auto;
+      }
+    }
   }
 }
 .form__block {
@@ -14,18 +34,65 @@
   flex-direction: column;
   flex: 1;
 
+  @include tablets {
+    &:nth-child(2n + 1) {
+      flex: none;
+      width: 65%;
+    }
+    &:nth-child(2n) {
+      flex: none;
+      width: 35%;
+    }
+  }
+
   .form__block-title {
     &--select {
       width: 6.14286rem;
       margin: 0 auto;
+
+      @include tablets {
+        margin-right: 0;
+      }
     }
   }
+  .form__input-date {
+    position: relative;
+    max-width: rem(167px);
 
+    @include tablets {
+      max-width: 100%;
+    }
+
+    &.disabled .form__calendar {
+      background-image: inline_svg('calendar', #94c4db);
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+  .form__calendar {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    background-image: inline_svg('calendar', #656565);
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .form__block-input {
+    width: 100%;
     margin: 0.4rem 0;
     border: 1px solid $color_white;
     border-radius: 5px;
     padding: 1rem;
+    font-size: rem(16px);
+
+    &--date {
+      padding-right: 3.5rem;
+    }
 
     &:disabled {
       border: 1px solid #0076ad;
@@ -55,12 +122,21 @@
 .form__swap {
   flex: none;
   margin: 0 1rem;
-  width: rem(30px);
-  height: rem(16px);
+  width: 32px;
+  height: 19px;
   fill: $color_blue_hide;
   &:hover {
     cursor: pointer;
-    fill: $color_white;
+    background-image: inline_svg('swap', $color_white);      
+  }
+  background-image: inline_svg('swap', $color_blue_hide);  
+  transition: transform 0.3s ease;
+
+  @include tablets {
+    transform: rotate(90deg);
+  }
+  @include phones {
+    margin-top: 1rem;
   }
 }
 
@@ -71,6 +147,17 @@
   border-radius: 3px;
   border: 1px solid #de5300;
   background-image: linear-gradient(to top, #f75e02 0%, #fbb04c 100%);
+  transition: all 0.1s ease;
+
+  &:hover {
+    box-shadow: inset 0 2px 0 darken(#fcc272, 10%);
+    border: 1px solid darken(#de5300, 10%);
+    background-image: linear-gradient(
+      to top,
+      darken(#f75e02, 10%) 0%,
+      darken(#fbb04c, 10%) 100%
+    );
+  }
 }
 .form__button-inner {
   padding-left: rem(30px);
@@ -78,13 +165,14 @@
   color: #ffffff;
   font-size: rem(16px);
   font-weight: 400;
+
   &:before {
     content: ' ';
     position: absolute;
     left: 0;
     top: 0;
-    width: rem(20px);
-    height: rem(20px);
+    width: 20px;
+    height: 20px;
     background-image: inline_svg('search', $color_white);
   }
 }

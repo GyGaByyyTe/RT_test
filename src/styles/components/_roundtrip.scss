@@ -1,6 +1,6 @@
 .roundtrip {
   position: absolute;
-  top: -0.3rem;
+  top: -0.55rem;
   left: 56%;
   transform: translateX(-50%);
   padding: 0.5rem;
@@ -9,6 +9,10 @@
 
   @include before_tablets {
     left: 50%;
+  }
+  @include tablets {
+    left: 100%;
+    transform: translateX(-100%);
   }
 }
 /* Чекбокс */

@@ -5,12 +5,34 @@ $border_gray: 1px solid #d7d7d7;
   background-color: $color_light_blue;
   padding: 0 rem(86px);
 
-  @include small{
+  @include small {
     padding: 0 1rem;
+  }
+
+  @include tablets {
+    padding: 0.95rem;
   }
 
   .menu__list {
     display: flex;
+
+    @include tablets {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      right: 0;
+      // bottom: 0;
+      z-index: 100;
+      background-color: #54add8;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      order: 1;
+      transition: top 0.7s ease-in-out;
+      &.active {
+        top: 0;
+      }
+    }
   }
 
   .menu__item {
@@ -43,7 +65,7 @@ $border_gray: 1px solid #d7d7d7;
 
       &:hover {
         .menu__sublist {
-          z-index: 10;
+          left: 0;
         }
       }
     }
@@ -56,9 +78,9 @@ $border_gray: 1px solid #d7d7d7;
   .menu__sublist {
     overflow: hidden;
     position: absolute;
-    z-index: -1;
     top: 100%;
-    left: 0;
+    left: -9999%;
+    z-index: 200;
     border: $border_gray;
     border-top: none;
     border-radius: 0 0 6px 6px;
@@ -99,6 +121,7 @@ $border_gray: 1px solid #d7d7d7;
 
   .menu__login {
     position: relative;
+    display: inline-block;
     padding-left: 1.5rem;
     color: $color_light_blue_hide;
     font-weight: 400;
@@ -117,8 +140,8 @@ $border_gray: 1px solid #d7d7d7;
       position: absolute;
       left: 0;
       top: 0;
-      width: 15px;
-      height: 15px;
+      width: 14px;
+      height: 18px;
       background-image: inline_svg('sign_in', $color_blue_hide);
     }
   }

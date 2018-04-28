@@ -1,4 +1,3 @@
-
 const selectInit = require('./common/select');
 const calendarInit = require('./common/calendar');
 
@@ -10,6 +9,10 @@ if (document.getElementsByClassName('form__date')) {
   calendarInit();
 }
 
-$('.roundtrip__custom-checkbox-real').on("click", function (e) {
-  $('#datetimepicker2').prop('disabled', function(i, v) { return !v; });
+// menu overlay
+var sliderOverlay = $('#nav');
+$('.hamburger__link').click(function(e) {
+  e.preventDefault();
+  $(this).toggleClass('hamburger__link--pressed');
+  sliderOverlay.toggleClass('active');
 });
